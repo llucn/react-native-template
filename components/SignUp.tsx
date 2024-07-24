@@ -151,7 +151,7 @@ export class SignUp extends React.Component<{
   }
 }
 
-export default class TestLoginCreateAccount extends React.Component {
+export default class LoginCreateAccount extends React.Component {
   state = {
     openCreate: false,
   };

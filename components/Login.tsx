@@ -3,10 +3,12 @@ import { StyleSheet, ScrollView, View, Alert, Text as ReactText } from 'react-na
 import { ViewWrapper, Text, TopNavigationBarLogin, InlineLink, TextInput, PasswordInput, Checkbox, Button, getColor, openLink, TooltipProps, LinkProps, Notification, DocumentViewer } from '@carbon/react-native';
 import ArrowRightIcon from '@carbon/icons/es/arrow--right/20';
 import InformationIcon from '@carbon/icons/es/information/20';
-//import applicationConfig from '@/configs/application';
+import applicationConfig from '../configs/application';
 import { SignUp } from './SignUp';
 
-export default class Login extends React.Component {
+export default class Login extends React.Component<{
+  goHome: () => void;
+}> {
   state = {
     openCreate: false,
     error: false,
@@ -51,6 +53,7 @@ export default class Login extends React.Component {
   }
 
   private logIn = (): void => {
+    const { goHome } = this.props;
     Alert.alert('Login flow finished', 'You have logged in. After checking account you would let user into main app. Would you like to go home or trigger login failure?', [
       {
         text: 'Trigger error',
@@ -61,8 +64,7 @@ export default class Login extends React.Component {
       {
         text: 'Go home',
         onPress: () => {
-          //router.replace('/(page)/index');
-          console.log('goto main page');
+          goHome();
         }
       },
     ]);
@@ -126,7 +128,7 @@ export default class Login extends React.Component {
     return (
       <ViewWrapper topBackgroundColor="#000000" statusBarStyle="light-content">
         <TopNavigationBarLogin
-          title={false ? 'Your new password has been activated' : `Log in to Test App`}
+          title={false ? 'Your new password has been activated' : `Log in to ${applicationConfig.name}`}
           backText=""
           backOnPress={true ? undefined : undefined}
           subTitle={this.helperText}
