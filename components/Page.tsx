@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyleSheet, ScrollView, View, Alert, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Formio } from 'react-native-formio';
-import startCenterJson from '../configs/pages/startCenter.json';
-import testPageJson from '../configs/pages/testPage.json';
-import simplePageJson from '../configs/pages/simplePage.json';
 
-export default function Page() {
+export default function Page(props: {
+  name: string,
+  components: any;
+  changeView: (name: string) => void;
+}) {
   return (
     <View style={styles.container}>
       <Formio 
-        src={simplePageJson} 
+        src={props.components} 
       />
     </View>
   );
@@ -22,10 +23,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   text: {
-    marginTop: 30,
+    marginTop: 10,
     alignSelf: 'center',
     fontWeight: 'bold',
     fontSize: 20,
-    marginBottom: 20,
+    marginBottom: 10,
   },
 });
