@@ -11,6 +11,8 @@ export default function Page(props: {
     <View style={styles.container}>
       <Formio 
         src={props.components} 
+        onNavigation={ (arg: any) => console.log('navigation', arg)}
+        onError={ (arg: any) => console.log('error', arg)}
       />
     </View>
   );
