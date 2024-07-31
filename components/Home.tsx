@@ -51,7 +51,11 @@ export default function Home(props: {
         rightItems={[{ text: 'Return to components', icon: ExitIcon, onPress: goExit }]}
       />
       <ScrollView keyboardShouldPersistTaps="handled" contentInsetAdjustmentBehavior="automatic" contentContainerStyle={styles.container} style={styles.view}>
-        <Page name={name} changeView={changeView} components={components} />
+        <Page 
+          name={name} 
+          changeView={changeView} 
+          components={components} 
+        />
       </ScrollView>
       <UiPanel open={open} onClose={() => setOpen(false)} items={itemProps} closeOnNoChildrenPress={true} />
     </ViewWrapper>

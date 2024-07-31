@@ -26,6 +26,18 @@ const navigationConfig = {
           }
         },
         {
+          text: 'Active',
+          leftIcon: 'LaunchIcon',
+          textBreakMode: 'tail',
+          disabled: false,
+          route: {
+            name: 'workOrders',
+            params: {
+              type: 'active'
+            }
+          }
+        },
+        {
           text: 'Completed',
           leftIcon: 'LaunchIcon',
           textBreakMode: 'tail',

@@ -22,8 +22,13 @@ const routesConfig = {
       }
     },
     {
+      name: "workOrders",
+      title: "Work Orders - ${type}",
+      page: "workOrders",
+    },
+    {
       name: "workOrderDetail",
-      title: "Work Order #${id}",
+      title: "Work Order ${id}",
       page: "workOrderDetail",
     },
   ]
