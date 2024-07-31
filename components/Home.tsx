@@ -4,9 +4,9 @@ import { UiPanel, UiPanelItemProps, ViewWrapper, TopNavigationBar } from '@carbo
 import MenuIcon from '@carbon/icons/es/menu/20';
 import CloseIcon from '@carbon/icons/es/close/20';
 import ExitIcon from '@carbon/icons/es/logout/20';
-import navigationConfig from '../configs/navigation';
+import getNavigation from '../configs/navigation/index';
 import pagesConfig from '../configs/pages';
-import routersConfig from '../configs/routers';
+import routesConfig from '../configs/routes';
 import Page from './Page';
 
 export default function Home(props: {
@@ -25,14 +25,15 @@ export default function Home(props: {
     props.goExit();
   }
 
-  const changeView = (name: string) => {
+  const changeView = (name: string, params?: any) => {
+    //console.log('changeView', name, params);
     setName(name);
   }
 
-  const itemProps: UiPanelItemProps[] = navigationConfig(changeView).navigation;
+  const itemProps: UiPanelItemProps[] = getNavigation(changeView).navigation;
 
   React.useEffect(() => {
-    const rs = routersConfig.routers.filter(r => r.name === name);
+    const rs = routesConfig.routes.filter(r => r.name === name);
     if (rs && rs.length > 0) {
       setTitle(rs[0].title);
       const ps = pagesConfig.pages.filter(p => p.name === rs[0].page);

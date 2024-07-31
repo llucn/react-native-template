@@ -1,6 +1,6 @@
 import startCenter from './startCenter.json';
-import testPage from './testPage.json';
-import simplePage from './simplePage.json';
+import workOrders from './workOrders.json';
+import workOrderDetail from './workOrderDetail.json';
 
 const pagesConfig = {
   pages: [
@@ -9,12 +9,12 @@ const pagesConfig = {
       components: startCenter,
     },
     {
-      name: 'testPage',
-      components: testPage,
+      name: 'workOrders',
+      components: workOrders,
     },
     {
-      name: 'simplePage',
-      components: simplePage,
+      name: 'workOrderDetail',
+      components: workOrderDetail,
     },
   ]
 };
