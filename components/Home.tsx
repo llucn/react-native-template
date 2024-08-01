@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, ScrollView, Text } from 'react-native';
-import { UiPanel, UiPanelItemProps, ViewWrapper, TopNavigationBar } from '@carbon/react-native';
+import { StyleSheet, ScrollView } from 'react-native';
+import { ViewWrapper, TopNavigationBar } from '@carbon/react-native';
 import MenuIcon from '@carbon/icons/es/menu/20';
 import CloseIcon from '@carbon/icons/es/close/20';
 import ExitIcon from '@carbon/icons/es/logout/20';
-import getNavigation from '../configs/navigation/index';
 import pagesConfig from '../configs/pages';
 import routesConfig from '../configs/routes';
+import Navigation from './Navigation';
 import Page from './Page';
 
 export default function Home(props: {
@@ -29,8 +29,6 @@ export default function Home(props: {
     //console.log('changeView', name, params);
     setName(name);
   }
-
-  const itemProps: UiPanelItemProps[] = getNavigation(changeView).navigation;
 
   React.useEffect(() => {
     const rs = routesConfig.routes.filter(r => r.name === name);
@@ -57,7 +55,7 @@ export default function Home(props: {
           components={components} 
         />
       </ScrollView>
-      <UiPanel open={open} onClose={() => setOpen(false)} items={itemProps} closeOnNoChildrenPress={true} />
+      <Navigation open={open} onClose={setOpen} changeView={changeView} closeOnNoChildrenPress={true} />
     </ViewWrapper>
   );
 }
