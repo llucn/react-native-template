@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from './components/Login';
-import Home from './components/Home';
+import Login from './src/components/Login';
+import Home from './src/components/Home';
 
 function App(): JSX.Element {
   const [auth, setAuth] = React.useState(false);
